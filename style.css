@@ -56,12 +56,18 @@ nav a.active {
 
 .scroll-indicator {
   position: fixed;
-  top: 35%; /* Using vh to position the indicator relative to the viewport height */
-  right: 1.5vw; /* 1.5vw for right position, allowing it to scale based on screen width */
-  width: 0.4rem; /* Relative to font-size, ensures width adjusts according to user settings */
-  height: calc(100vh - 35% - 1em); /* Calculating height using viewport height (vh) */
-  background: #b6d8ea; /* Color for the indicator */
-  border-radius: 0.2rem; /* Border radius relative to font-size */
+  top: 35%;
+  /* Using vh to position the indicator relative to the viewport height */
+  right: 1.5vw;
+  /* 1.5vw for right position, allowing it to scale based on screen width */
+  width: 0.4rem;
+  /* Relative to font-size, ensures width adjusts according to user settings */
+  height: calc(100vh - 35% - 1em);
+  /* Calculating height using viewport height (vh) */
+  background: #b6d8ea;
+  /* Color for the indicator */
+  border-radius: 0.2rem;
+  /* Border radius relative to font-size */
   z-index: 999;
 }
 
@@ -69,11 +75,14 @@ nav a.active {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 1rem; /* 1rem to make the width relative to the root font-size */
-  height: 1rem; /* 1rem for height as well */
+  width: 1rem;
+  /* 1rem to make the width relative to the root font-size */
+  height: 1rem;
+  /* 1rem for height as well */
   background: #d02424;
   border-radius: 50%;
-  box-shadow: 0 0 0.375rem rgba(20, 3, 3, 0.2); /* Using rem for the box-shadow blur */
+  box-shadow: 0 0 0.375rem rgba(20, 3, 3, 0.2);
+  /* Using rem for the box-shadow blur */
   transition: top 0.1s ease-out;
 }
 
@@ -83,7 +92,8 @@ nav a.active {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 5em 2em; /* good use of em units */
+  padding: 5em 2em;
+  /* good use of em units */
   background-image: url('./IMG_2557.JPG');
   background-size: cover;
   background-position: center bottom 48%;
@@ -93,13 +103,13 @@ nav a.active {
   top: 0;
   z-index: 100;
   color: #fff;
-  min-height: 25%; 
+  min-height: 25%;
   transition:
-    height 0.9s cubic-bezier(.23,1.07,.55,.97),
-    padding 0.9s cubic-bezier(.23,1.07,.55,.97),
-    font-size 0.9s cubic-bezier(.23,1.07,.55,.97),
-    background-position 0.9s cubic-bezier(.23,1.07,.55,.97),
-    background-size 0.9s cubic-bezier(.23,1.07,.55,.97);
+    height 0.9s cubic-bezier(.23, 1.07, .55, .97),
+    padding 0.9s cubic-bezier(.23, 1.07, .55, .97),
+    font-size 0.9s cubic-bezier(.23, 1.07, .55, .97),
+    background-position 0.9s cubic-bezier(.23, 1.07, .55, .97),
+    background-size 0.9s cubic-bezier(.23, 1.07, .55, .97);
   overflow: hidden;
 }
 
@@ -112,12 +122,16 @@ nav a.active {
   left: 50%;
   width: 3em;
   height: 3em;
-  margin: -1.5em 0 0 -1.5em; /* Center it exactly */
-  border: 4px solid #ffffff80; /* semi-transparent */
-  border-top-color: #d54545;   /* your highlight color */
+  margin: -1.5em 0 0 -1.5em;
+  /* Center it exactly */
+  border: 4px solid #ffffff80;
+  /* semi-transparent */
+  border-top-color: #d54545;
+  /* your highlight color */
   border-radius: 50%;
   animation: spin 1s linear infinite;
-  z-index: 1000; /* Make sure it's above text/images */
+  z-index: 1000;
+  /* Make sure it's above text/images */
 }
 
 .loading-spinner.fade-out {
@@ -162,13 +176,13 @@ nav a.active {
 .loading-header .animated-name {
   font-size: 3em;
   margin: 0.5em 0;
-  transition: font-size 0.9s cubic-bezier(.23,1.07,.55,.97);
+  transition: font-size 0.9s cubic-bezier(.23, 1.07, .55, .97);
 }
 
 .loading-header .location p {
   font-size: 2em;
   margin-top: 0.5em;
-  transition: font-size 0.9s cubic-bezier(.23,1.07,.55,.97);
+  transition: font-size 0.9s cubic-bezier(.23, 1.07, .55, .97);
 
   font-weight: bold;
   background: linear-gradient(90deg, #ffffff, #b6d8ea, #ffffff);
@@ -241,7 +255,8 @@ nav a.active {
 .contact-floating {
   position: fixed;
   margin-top: 11%;
-  left: calc(28% - 20em);   /* 1em to the left of the section */
+  left: calc(28% - 20em);
+  /* 1em to the left of the section */
   margin-left: 1.5;
   transform: translateY(-50%);
   background: linear-gradient(90deg, #d54545 0%, #ffd580 100%);
@@ -253,8 +268,8 @@ nav a.active {
   align-items: center;
   gap: 0.7em;
   z-index: 200;
-  min-width: 11.25rem; 
-  max-width: 16.25rem; 
+  min-width: 11.25rem;
+  max-width: 16.25rem;
 }
 
 .contact-floating h1 {
@@ -293,7 +308,7 @@ nav a.active {
   background: #fff8e1;
   box-shadow: 0 1px 4px rgba(208, 36, 36, 0.05);
   overflow: visible;
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 .contact-floating .icon-links a p {
@@ -333,7 +348,8 @@ nav a.active {
 
 .section {
   margin-top: 2%;
-  margin-left: 26%;    /* Leaves room for floating box */
+  margin-left: 26%;
+  /* Leaves room for floating box */
   width: 72%;
   max-width: 100%;
   display: none;
@@ -369,16 +385,19 @@ nav a.active {
 }
 
 /* Add diamond using ::before and style it */
-.section-box li  {
+.section-box li {
   list-style: none;
   position: relative;
-  padding-left: 0em;  /* More indented than default */
+  padding-left: 0em;
+  /* More indented than default */
   /*left: -1%;      /* Indentation for bullet space */
 }
 
 .section-box li::before {
-  content: "◆";               /* Unicode Diamond: \25C6 or \25C7 for outline */
-  color: #d54545;             /* Modern brand color (red) */
+  content: "◆";
+  /* Unicode Diamond: \25C6 or \25C7 for outline */
+  color: #d54545;
+  /* Modern brand color (red) */
   font-size: 1.1em;
   position: absolute;
   left: -3%;
@@ -391,13 +410,15 @@ nav a.active {
 
 
 .section-box li:hover::before {
-  color: #ffd580;  /* Changes diamond color on hover */
+  color: #ffd580;
+  /* Changes diamond color on hover */
 }
 
 .section-box:hover {
   background-image:
     linear-gradient(white, #f9f5d9),
-    linear-gradient(90deg, #ffffff, #b6d8ea, #ffffff); /* flowing gradient */
+    linear-gradient(90deg, #ffffff, #b6d8ea, #ffffff);
+  /* flowing gradient */
   background-size: 400% 100%;
   background-position: 100% 0;
   animation: shimmer-bg 5s linear infinite;
@@ -407,6 +428,7 @@ nav a.active {
   0% {
     background-position: 200% 0;
   }
+
   100% {
     background-position: -200% 0;
   }
@@ -436,7 +458,7 @@ h3,
   color: #000000;
 }
 
-a{
+a {
   color: #96bbcf;
 }
 
@@ -451,7 +473,14 @@ a{
 html {
   scroll-behavior: smooth;
 }
+
 @media (max-width: 900px) {
+
+  .section-box li::before {
+    left: -1em;
+    /* Shift bullet more left; adjust as needed */
+  }
+
   /* Stack personal info grids */
   .personal-info {
     grid-template-columns: 1fr;
@@ -465,7 +494,8 @@ html {
   }
 
   /* Adjust font size for headings inside profile-header */
-  .profile-header h1, .profile-header h2 {
+  .profile-header h1,
+  .profile-header h2 {
     font-size: 1.2rem;
   }
 
@@ -474,12 +504,14 @@ html {
     margin-left: 0;
     width: 100%;
     padding: 1em;
+    margin-top: 5em;
+    /* Add space above the section */
   }
 
   /* Contact floating reposition or hide */
   .contact-floating {
     position: fixed;
-    bottom: 1em;
+    top: 1em;       
     left: 50%;
     transform: translateX(-50%);
     width: auto;
