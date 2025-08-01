@@ -476,9 +476,10 @@ html {
 
 @media (max-width: 900px) {
 
+  /* Move diamond bullet moderately left inside list item */
   .section-box li::before {
-    left: -1em;
-    /* Shift bullet more left; adjust as needed */
+    left: -1.5em;  /* A good moderate shift left for mobile */
+    font-size: 1em; /* optionally slightly smaller bullet */
   }
 
   /* Stack personal info grids */
@@ -504,19 +505,32 @@ html {
     margin-left: 0;
     width: 100%;
     padding: 1em;
-    margin-top: 5em;
+    margin-top: 1%; /* create visible gap for nav/menu */
+    position: relative;
     /* Add space above the section */
   }
 
   /* Contact floating reposition or hide */
   .contact-floating {
-    position: fixed;
-    top: 1em;       
-    left: 50%;
+    position: sticky; 
+    margin-top: 10vh;
+    margin-left: 50%;
     transform: translateX(-50%);
     width: auto;
-    max-width: 90vw;
+    max-width: 50vw;
     min-width: unset;
-    z-index: 300;
+    z-index: 25;
+  }
+
+  .scroll-indicator {
+    top: 50%;
+    margin-right: -0.5%;
+    height: calc(100vh - 50% - 2em);
+    
+  }
+  
+  .scroll-thumb {
+    width: 0.8rem;
+    height: 0.8rem;
   }
 }
