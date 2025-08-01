@@ -1,0 +1,490 @@
+/* global */
+@import url('https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
+
+nav {
+  position: fixed;
+  top: 25%;
+  left: 0;
+  right: 0;
+  z-index: 110;
+
+  padding: 1em 0;
+  text-align: center;
+
+  background: linear-gradient(90deg, #ffd580 0%, #d02424 50%, #f8c6ae 100%);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+
+  transition: background 0.5s;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+
+}
+
+nav li {
+  display: inline-block;
+  margin: 0 1em;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 18px;
+  transition: color 0.2s, transform 0.2s;
+  transition: transform 0.3s ease, color 0.2s ease;
+  /* Add transform to the transition */
+  display: inline-block;
+  /* To transform buttons on nav bar when hovering */
+}
+
+nav a:hover {
+  transform: scale(1.3);
+}
+
+nav a.active {
+  color: #000000;
+  transform: scale(1.3);
+  /* Grows to 1.18 times the original size */
+}
+
+
+
+.scroll-indicator {
+  position: fixed;
+  top: 35%; /* Using vh to position the indicator relative to the viewport height */
+  right: 1.5vw; /* 1.5vw for right position, allowing it to scale based on screen width */
+  width: 0.4rem; /* Relative to font-size, ensures width adjusts according to user settings */
+  height: calc(100vh - 35% - 1em); /* Calculating height using viewport height (vh) */
+  background: #b6d8ea; /* Color for the indicator */
+  border-radius: 0.2rem; /* Border radius relative to font-size */
+  z-index: 999;
+}
+
+.scroll-thumb {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1rem; /* 1rem to make the width relative to the root font-size */
+  height: 1rem; /* 1rem for height as well */
+  background: #d02424;
+  border-radius: 50%;
+  box-shadow: 0 0 0.375rem rgba(20, 3, 3, 0.2); /* Using rem for the box-shadow blur */
+  transition: top 0.1s ease-out;
+}
+
+
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5em 2em; /* good use of em units */
+  background-image: url('./IMG_2557.JPG');
+  background-size: cover;
+  background-position: center bottom 48%;
+  background-repeat: no-repeat;
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  color: #fff;
+  min-height: 25%; 
+  transition:
+    height 0.9s cubic-bezier(.23,1.07,.55,.97),
+    padding 0.9s cubic-bezier(.23,1.07,.55,.97),
+    font-size 0.9s cubic-bezier(.23,1.07,.55,.97),
+    background-position 0.9s cubic-bezier(.23,1.07,.55,.97),
+    background-size 0.9s cubic-bezier(.23,1.07,.55,.97);
+  overflow: hidden;
+}
+
+
+
+
+.loading-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3em;
+  height: 3em;
+  margin: -1.5em 0 0 -1.5em; /* Center it exactly */
+  border: 4px solid #ffffff80; /* semi-transparent */
+  border-top-color: #d54545;   /* your highlight color */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  z-index: 1000; /* Make sure it's above text/images */
+}
+
+.loading-spinner.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* Spinner animation keyframes */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* loading (loading) state */
+.loading-header {
+  position: fixed;
+  /* Take up full viewport */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  z-index: 9999;
+}
+
+/* Text extra large and centered in loading state */
+.loading-header .profile-left,
+.loading-header .profile-center {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loading-header .animated-name {
+  font-size: 3em;
+  margin: 0.5em 0;
+  transition: font-size 0.9s cubic-bezier(.23,1.07,.55,.97);
+}
+
+.loading-header .location p {
+  font-size: 2em;
+  margin-top: 0.5em;
+  transition: font-size 0.9s cubic-bezier(.23,1.07,.55,.97);
+
+  font-weight: bold;
+  background: linear-gradient(90deg, #ffffff, #b6d8ea, #ffffff);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: shimmer-text 4s linear infinite;
+  display: inline-block;
+}
+
+/* Transition to normal header styles */
+.profile-header:not(.loading-header) .animated-name {
+  font-size: 1.5em;
+}
+
+.profile-header:not(.loading-header) .location {
+  font-size: 1em;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ffffff, #b6d8ea, #ffffff);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: shimmer-text 4s linear infinite;
+  display: inline-block;
+}
+
+.profile-header:not(.loading-header) {
+  position: sticky;
+  height: auto;
+  padding: 4em 2em;
+  align-items: center;
+  justify-content: space-between;
+  background-position: center bottom 48%;
+  background-size: cover;
+  z-index: 100;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200%;
+  }
+
+  100% {
+    background-position: 200%;
+  }
+}
+
+.animated-name {
+  font-size: 3em;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ffffff, #b6d8ea, #ffffff);
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: shimmer 5s linear infinite;
+  display: inline-block;
+  /* Ensures transform only affects the name itself */
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Smooth scaling */
+}
+
+.location:hover {
+  transform: scale(1.08);
+  /* Grows the name by 8%; */
+}
+
+.contact-floating {
+  position: fixed;
+  margin-top: 11%;
+  left: calc(28% - 20em);   /* 1em to the left of the section */
+  margin-left: 1.5;
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, #d54545 0%, #ffd580 100%);
+  border-radius: 1em;
+  box-shadow: 0 4px 16px rgba(208, 36, 36, 0.08);
+  padding: 1em 1.2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7em;
+  z-index: 200;
+  min-width: 11.25rem; 
+  max-width: 16.25rem; 
+}
+
+.contact-floating h1 {
+  margin: 0 0 0.4em 0;
+  font-size: 2em;
+  text-align: center;
+  word-break: break-word;
+}
+
+.animated-name:hover {
+  transform: scale(1.08);
+  /* Grows the name by 8%; */
+}
+
+.icon-links {
+  display: flex;
+  flex-direction: row;
+  /* Icons in a row */
+  justify-content: center;
+  gap: 0.7em;
+  /* Space between icons */
+  width: 100%;
+}
+
+.contact-floating .icon-links a {
+  position: relative;
+  color: #d02424;
+  font-size: 1.3em;
+  transition: color 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2em;
+  height: 2.2em;
+  border-radius: 50%;
+  background: #fff8e1;
+  box-shadow: 0 1px 4px rgba(208, 36, 36, 0.05);
+  overflow: visible;
+  text-decoration: none; 
+}
+
+.contact-floating .icon-links a p {
+  position: absolute;
+  left: 0%;
+  top: 100%;
+  /* below the icon */
+  opacity: 0;
+  background: #ffd580;
+  color: #b8860b;
+  border-radius: 0.5em;
+  padding: 0.2em 0.8em;
+  white-space: nowrap;
+  pointer-events: none;
+  font-size: 0.75em;
+  font-weight: 600;
+  transition:
+    opacity 0.3s cubic-bezier(0.45, 0, 0.55, 1),
+    transform 0.3s cubic-bezier(0.45, 0, 0.55, 1);
+  z-index: 5;
+}
+
+/* Reveal the label below the icon at a 45deg angle on hover */
+.contact-floating .icon-links a:hover p,
+.contact-floating .icon-links a:focus p {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0.5em) scale(1);
+}
+
+.contact-floating a:hover {
+  color: #b8860b;
+  /* This changes the icon color to yellow on hover */
+  background: #fff3c0;
+  transform: scale(1.2);
+  /* This makes the icon grow bigger on hover */
+}
+
+.section {
+  margin-top: 2%;
+  margin-left: 26%;    /* Leaves room for floating box */
+  width: 72%;
+  max-width: 100%;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2em 2em;
+  box-sizing: border-box;
+}
+
+.section#about {
+  display: block;
+
+}
+
+.section-box {
+  background: #fff;
+  /* fallback */
+  padding: 1em 2em 2em 2em;
+  border-radius: 1em;
+  margin: 1em 0;
+  border: 5px solid transparent;
+  position: relative;
+
+  /* Clean, thin gradient border trick */
+  background-image:
+    linear-gradient(white, #f9f5d9),
+    /* Inner background */
+    linear-gradient(90deg, #ffd580 0%, #d02424 50%, #f8c6ae 100%);
+  /* Border gradient */
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
+  box-sizing: border-box;
+}
+
+/* Add diamond using ::before and style it */
+.section-box li  {
+  list-style: none;
+  position: relative;
+  padding-left: 0em;  /* More indented than default */
+  /*left: -1%;      /* Indentation for bullet space */
+}
+
+.section-box li::before {
+  content: "◆";               /* Unicode Diamond: \25C6 or \25C7 for outline */
+  color: #d54545;             /* Modern brand color (red) */
+  font-size: 1.1em;
+  position: absolute;
+  left: -3%;
+  line-height: 1.0;
+  font-weight: bold;
+  /* Optional shine effect: */
+  text-shadow: 1px 1px 2px #ffd58099;
+  transition: color 0.2s;
+}
+
+
+.section-box li:hover::before {
+  color: #ffd580;  /* Changes diamond color on hover */
+}
+
+.section-box:hover {
+  background-image:
+    linear-gradient(white, #f9f5d9),
+    linear-gradient(90deg, #ffffff, #b6d8ea, #ffffff); /* flowing gradient */
+  background-size: 400% 100%;
+  background-position: 100% 0;
+  animation: shimmer-bg 5s linear infinite;
+}
+
+@keyframes shimmer-bg {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: "Playfair Display", serif;
+  background-color: #f9f5d9;
+  color: #040912;
+}
+
+h1,
+.white {
+  color: #d54545;
+}
+
+h2,
+.white {
+  color: #d54545;
+}
+
+h3,
+.white {
+  color: #000000;
+}
+
+a{
+  color: #96bbcf;
+}
+
+
+.section p,
+.section li {
+  color: #000000;
+  font-size: large;
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+@media (max-width: 900px) {
+  /* Stack personal info grids */
+  .personal-info {
+    grid-template-columns: 1fr;
+  }
+
+  /* Profile header vertical layout */
+  .profile-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5em 1em;
+  }
+
+  /* Adjust font size for headings inside profile-header */
+  .profile-header h1, .profile-header h2 {
+    font-size: 1.2rem;
+  }
+
+  /* Sections full width for easier reading */
+  .section {
+    margin-left: 0;
+    width: 100%;
+    padding: 1em;
+  }
+
+  /* Contact floating reposition or hide */
+  .contact-floating {
+    position: fixed;
+    bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    max-width: 90vw;
+    min-width: unset;
+    z-index: 300;
+  }
+}
